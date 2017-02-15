@@ -30,7 +30,7 @@ import java.util.*
 class TriadicClosureMapper : Mapper<LongWritable, Text, NodeWritable, NodeWritable>() {
 
     override public fun map(key: LongWritable, value: Text, context: Context) {
-        val nodePair = NodePairWritable.Companion.fromString(value.toString())
+        val nodePair = NodePairWritable.fromString(value.toString())
         context.write(nodePair.node1, nodePair.node2)
         context.write(nodePair.node2, nodePair.node1)
     }
